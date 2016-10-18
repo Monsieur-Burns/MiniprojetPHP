@@ -1,0 +1,68 @@
+<div class="panel panel-success">
+  <div class="panel-heading"><h3 class="panel-title">Les six derniers commentaire</h3></div>
+  <?php foreach ($lastComments as $key => $value) { ?>
+  <div class="panel-body"><?php echo $value['content'] . ' publié le ' .$value['created_at'] ; ?></div>
+  <?php } ?>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading"><h3 class="panel-title">Les six films les mieux notés</h3></div>
+  <?php foreach ($lastMovies as $key => $value) { ?>
+  <div class="panel-body">><?php echo $value['title']; ?></div>
+  <?php } ?>
+</div>
+
+
+<span class="label label-primary">Success</span>
+
+
+<img src="" />
+
+
+<a href="#"></a>
+
+php
+
+
+<div class="alert alert-success">Le commentaire a été ajouté</div>
+
+
+/************************************************* Transmettre les données en POST ********************************************/
+
++  Afficher tous les Medias relatifs à un film la page Film
+
+
++ Créer une formulaire de media dans la page movie avec
++ La nature(liste déroulante: url ou video) ,
++ La picture (champs texte)
++ La video (textarea)
+
+<div class="jumbotron"><h1>Jumbotron</h1><p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p><p><a class="btn btn-primary btn-lg">Learn more</a></p></div>
+
+
++ Créer une table contact permetant de stocker les messages de contact l'Id , le sujet (varchar), l'url du site, email, contenu (TEXT)
+
++ Créer une page de Contact avec un formulaire de contact avec sujet (liste déroulante), url du site, email, contenu,
+
++ Moteur de recherche des films par leur titre ($_POST)
+
++ Créer un moteur de recherche de Cinemas
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<div class="jumbotron">
+  <h2>titre film</h2><br>
+  <p>Synopsis :</p><br>
+  <p></p><br>
+  <span class="label label-primary">Default</span>
+  <span class="label label-default">Default</span>
+  <span class="label label-default">Default</span>
+  <span class="label label-default">Default</span>
+
+</div>
+
+
+
+
+<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>Ce film n'existe pas en base de donnée</div>

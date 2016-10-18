@@ -1,0 +1,162 @@
+* Quelques pistes de réfléxions pour aller plus loin.......et pour votre curiosité :)
+
+* Quelle est la différence entre include et require en PHP?
+
+    require : inclut le contenu d'un autre fichier appelé, et provoque une erreur bloquante s'il est indisponible
+
+    include : inclut le contenu d'un autre fichier appelé, mais ne provoque pas d'erreur bloquante s'il est indisponible
+
+
+* Que signifie instead of ? Pourquoi l'utiliser en Orienté Objet? Décrivez un exemple...
+
+    instead of => est une instance de (classe)
+    insteadof permet de controller si un objet est une instance /objet est en provenance d'une classe
+
+    http://us3.php.net/manual/fr/language.oop5.traits.php
+    Les traits sont un mécanisme de réutilisation de code dans un langage à héritage simple tel que PHP. Un trait tente de réduire certaines limites de l'héritage simple, en autorisant le développeur à réutiliser un certain nombre de méthodes dans des classes indépendantes. La sémantique entre les classes et les traits réduit la complexité et évite les problèmes typiques de l'héritage multiple et des Mixins.
+
+    Un trait est semblable à une classe, mais il ne sert qu'à grouper des fonctionnalités d'une manière intéressante. Il n'est pas possible d'instancier un Trait en lui-même. C'est un ajout à l'héritage traditionnel, qui autorise la composition horizontale de comportements, c'est à dire l'utilisation de méthodes de classe sans besoin d'héritage.
+
+
+
+* Que signifie le "===" en Orienté Objet? Décrivez le en 1 exemple
+  opérateur de comparaison
+    $a === $b 	Identique 	TRUE si $a est égal à $b et qu'ils sont de même type.
+    sert a comparer le type d'un objet (typage (float, str, bool, int) ou comparaison de classe par ex)
+
+
+* Qu'est ce qu'une composition d'objet? En a-t-on deja utilisé dans le miniprojet? Si oui, où?
+    quand un classe a des attributs qui sont des objets d'autres classe
+
+    exemploe, ma classe Connection a un attribut PDO qui lui est un objet en soi ou un objet connexion dans ma classe Movies
+
+* Qu'est ce qu'un sous-namespace ? Décrivez le en 1 exemple...
+    un name space dans un autre name space,
+    utilité probable avec un framework ?
+
+
+
+
+
+* Peut-on créer un objet B provenant d'une classe B dans une classe A ?
+    oui c'est possible mais a eviter, c'est une dépendance forte, il faut priveligier un dépendance faible
+    plutot que créer l'objet dans la classe, il est préférable de l'injecter en paramètre'
+
+
+
+* Quelle est la différence entre classe et classe abstraite?
+    Les classes abstraites s'inscrivent davantage dans la sûreté de la programmation orientée objet. La première particularité d'une classe abstraite, c'est qu'elle ne peut être instanciée (et donc créer un objet). De cette affirmation, on en déduit logiquement qu'une classe abstraite est déclarée afin d'être dérivée par des classes concrètes.
+
+    Une classe abstraite se comporte comme une classe concrète typique. C'est-à-dire qu'elle peut déclarer des attributs et des méthodes traditionnels qui seront accessibles dans les classes dérivées. En fonction bien sûr de la visibilité choisie (public, private et protected) pour chacun des attributs et méthodes.
+
+    Jusque là, il n'y a aucun changement par rapport aux classes concrètes si ce n'est le fait que l'on ne puisse pas instancier les classes abstraites. C'est là qu'interviennent les méthodes abstraites. Nous verrons par la suite qu'une classe déclarée abstraire peut aussi définir des méthodes abstraites. Ces dernières devront obligatoirement être redéfinies dans les classes dérivées. C'est un moyen de s'assurer que la classe dérivée adoptera le comportement désiré.
+
+
+    La classe abstraite ne peut pas hérité d'une autre classe.
+
+        abstract class Humain{
+        	protected $nom;
+        	protected $prenom;
+        }
+
+      /*
+       *  Classe abstraite est une Classe
+       *  qui sert de modele aux autres classes
+       *  Une classe abstraite ne peut etre hérité d'une autre classe
+       */
+
+        class Personnel extends Humain{ }
+
+
+
+* Que signifie S.O.L.I.D.? A quoi ça sert dans l'Orienté Objet?
+    5 principe de l'orienté objet ==>
+        S.O.L.I.D stands for:
+
+        When expanded the acronyms might seem complicated, but they are pretty simple to grasp.
+
+          S – Single-responsiblity principle
+          O – Open-closed principle
+          L – Liskov substitution principle
+          I – Interface segregation principle
+          D – Dependency Inversion Principle
+
+          S.O.L.I.D.
+
+            S: Principe de responsabilité unique: Une classe fait un seul métier (logique métier). (ne pas avoir 3000 lignes de codes)
+            O: Open/
+            L: Principe de substitution de Liskov
+            I: Principe de ségrégation d'interfaces
+            D: Principe d'injection de dépendance
+
+        Let’s look at each principle individually to understand why S.O.L.I.D can help make us better developers.
+
+        http://code.tutsplus.com/fr/tutorials/solid-part-1-the-single-responsibility-principle--net-36074
+        https://fr.wikipedia.org/wiki/SOLID_%28informatique%29
+
+        S: Principe de responsabilité unique: Une classe fait un seul métier (logique métier). (ne pas avoir 3000 lignes de codes)
+        O: Open/Close: Qui reste ouvert a la création, fermer a la modification (Classe)
+
+        Quand une classe a des methodes ou des attributs que je veu modifier,
+        il vaut mieux passer par l'héritage pour surcharger(modifier) le comportement
+        de certains attributs ou méthodes.
+        Fermé a la modification, ouvert à l'extension.
+
+        L: C'est pouvoir remplacer un objet B issue d'une classe fille, par un objet A issue d'une classe mere
+            Sans casser la compatibilité des méthodes.
+
+        I:   Interface:
+            + C'est une abstraction de signatures de methodes en communs avec diverses classes.
+          + C'est un sommaire(resumé) de méthodes pour homogéniser des comportements entre les classes
+
+          ségrégation d'interfaces:
+
+            + Pour homogénéiser plusieurs classes, et ne pas avoir de classes Parents(par héritage)
+              je peux séparer certains comportements entre les classes dans 1 ou plusieurs interfaces
+              Par ailleurs, cela procure plus de souplesse dans les arguments de méthodes.
+
+                exemple: La gestion de Visibilité entre une Catégorie, Un Movie, Un Commentaire
+
+        D: Princip d'injectiobn des dépendances
+
+          Couplage faible: Il vaut mieux injecter en paramètre un objet issue d'une autre classe (injection de dépendances) dans une méthode. (différente du couplage fort)
+          Injecter des objets de provenance de différentes classe dans mes méthodes de classe.
+
+
+* Qu'est ce que l'Injection des Dépendances? Décrivez 1 exemple
+      L'injection de dépendance (DI pour les intimes) est un design pattern qui permet de solutionner la problématique de communication entre les classes.
+
+      public function __construct($database){
+        $this->database = new MySQLDatabase($database);
+        }
+
+
+
+
+* Qu'est ce qu'un Design Pattern? Citez-en 2 en exemple
+
+      Design Pattern: Patron de Conception => C'est un motif d'archirecture de classe, interface, classe abstraite
+      qui permet de resoudre certaines problématiques en application et qui provient tout droit de
+      l'UML (language formel Uniform Modeling Language).
+      C'est une modélisation d'interaction entre les classes sur des problématiques précises
+      3 familles design patterns
+      + Création d'objet
+      + Structures entra classes
+      + Comportements entre methodes de classes
+
+
+      MVC est le plus connus des Design Pattern (lire des articles à propos)
+
+
+
+* Qu'est ce que le MVC? A quoi ça sert en Orienté Objet?
+* Qu'est ce que Composer? A quoi cela va nous servir dans notre projet?
+
+    + Un logiciel qui permet de gérer les dépendances entre librairies, packets, classes, frameworks, composants ...
+    Il va chercher les dépendances entres classes
+    ( Si une classe dépendances d'une autre par héritage, par composition d'objets ...)
+
+
+
+* Qu'est ce qu'un trait ?
+*/
